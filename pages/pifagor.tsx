@@ -40,7 +40,7 @@ const PifagorPage: FC = () => {
 
   return (
     <MainLayout>
-      <div style={{ padding: "2rem" }}>
+      <div >
         <h1>Цифрологии 21 века</h1>
         <div>
           <Divider orientation="left">Дата рождения</Divider>

@@ -1,0 +1,44 @@
+
+
+
+{
+  "email": "emailnew",
+  "password": "password",
+  "first_name": "first_name",
+  "last_name": "last_name",
+  "phone": "6436437",
+  "sex": "m",
+  "birthdate": "23-09-2020"
+}
+
+
+----
+
+{
+  "email": "test1@gmail.com",
+  "password": "123456",
+  "first_name": "Mikhail",
+  "last_name": "Ivanov",
+  "phone": "79105990489",
+  "sex": "m",
+  "birthdate": "02-04-1996"
+}
+
+
+
+----
+{
+    "user": {
+        "first_name": "Mikhail",
+        "last_name": "Ivanov",
+        "email": "test1@gmail.com",
+        "phone": "79105990489",
+        "sex": "m",
+        "birthdate": "1996-04-02",
+        "api_key": "MTIzNDU2dGVzdDFAZ21haWwuY29td70I/jzdC66XEillJXTqxC/YYEuMqw3mxHiYN1mbeoz9dNVWTgEVeg==",
+        "updated_at": "2020-09-29 11:53:44",
+        "created_at": "2020-09-29 11:53:44",
+        "id": 4
+    },
+    "message": "CREATED"
+}

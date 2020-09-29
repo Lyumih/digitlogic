@@ -15,6 +15,12 @@ const HomePage = () => {
       <Link href="/pifagor">
         <Button>Начать</Button>
       </Link>
+      <Link href="/login">
+        <Button>Войти</Button>
+      </Link>
+      <Link href="/registration">
+        <Button>Регистрация</Button>
+      </Link>
     </div>
   );
 };
