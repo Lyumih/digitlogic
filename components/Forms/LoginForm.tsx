@@ -21,7 +21,7 @@ const LoginForm: FC<LoginFormProps> = ({ onFinish }) => {
         <Input type="email" />
       </Form.Item>
       <Form.Item
-        label="Password"
+        label="Пароль"
         name="password"
         rules={[{ required: true, message: "Пожалуйста введите ваш пароль!" }]}
       >

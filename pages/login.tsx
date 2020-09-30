@@ -10,6 +10,7 @@ const LoginPage = () => {
 
     fetch(`${API_URL_BASE}/users/login`, {
       method: "POST",
+      body: JSON.stringify(data),
     });
   };
 
