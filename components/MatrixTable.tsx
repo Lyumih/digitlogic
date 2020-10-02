@@ -23,11 +23,13 @@ const MatrixTable: FC<MatrixTableProps> = ({ matrix }) => {
       title: "",
       dataIndex: "321",
       key: "321",
+      width: "33%",
     },
     {
       title: "",
       dataIndex: "654",
       key: "654",
+      width: "33%",
     },
     {
       title: "",
