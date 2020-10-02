@@ -20,7 +20,6 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({ children }) => {
       } else {
         window.location.href = "/login";
       }
-      // router.push("/login");
     }
   }, [token]);
   return (
