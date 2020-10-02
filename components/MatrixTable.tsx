@@ -1,44 +1,59 @@
 import { Table } from "antd";
 import { FC } from "react";
 
-interface MatrixTableProps {}
+export interface Matrix {
+  1: number;
+  2: number;
+  3: number;
+  4: number;
+  5: number;
+  6: number;
+  7: number;
+  8: number;
+  9: number;
+}
 
-const MatrixTable: FC<MatrixTableProps> = () => {
+interface MatrixTableProps {
+  matrix: Matrix;
+}
+
+const MatrixTable: FC<MatrixTableProps> = ({ matrix }) => {
   const columns = [
     {
       title: "",
-      dataIndex: "first",
-      key: "first",
+      dataIndex: "321",
+      key: "321",
     },
     {
       title: "",
-      dataIndex: "second",
-      key: "second",
+      dataIndex: "654",
+      key: "654",
     },
     {
       title: "",
-      dataIndex: "third",
-      key: "third",
+      dataIndex: "987",
+      key: "987",
     },
   ];
+
   const dataSource = [
     {
       key: "1",
-      first: "3",
-      second: "6 6",
-      third: "9 99",
+      321: "3".repeat(matrix[3]),
+      654: "6".repeat(matrix[6]),
+      987: "9".repeat(matrix[9]),
     },
     {
       key: "2",
-      first: "2 2",
-      second: "5",
-      third: "8",
+      321: "2".repeat(matrix[2]),
+      654: "5".repeat(matrix[5]),
+      987: "8".repeat(matrix[8]),
     },
     {
       key: "3",
-      first: "1 1",
-      second: "4 4",
-      third: "7",
+      321: "1".repeat(matrix[1]),
+      654: "4".repeat(matrix[4]),
+      987: "7".repeat(matrix[7]),
     },
   ];
 

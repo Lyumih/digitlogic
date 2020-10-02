@@ -1,60 +1,71 @@
 import { Divider, List } from "antd";
-import { FC } from "react";
-import MatrixTable from "../components/MatrixTable";
+import { FC, useEffect, useState } from "react";
+import MatrixTable, { Matrix } from "../components/MatrixTable";
+import { API_URL_BASE } from "../constants";
 import AuthorizedLayout from "../layout/AuthorizedLayout";
 
 const MatrixPage: FC = () => {
-  const data = [
-    `Обратите внимание на здоровье.
-    Вам необходимо наработать энергию анализа.`,
-    "Вы наделены способностью принимать решения и умением. Вам необходимо наработать внутреннюю энергию кундалини.",
-    `Вы от природы чувствуете людей, но для того чтобы найти общий язык с ними вам необходимо понять.
-    Вам необходимо наработать энергию коммуникации, опыта и трудолюбия.
-    `,
-    `Вам от природы дана внутренняя удовлетворённость жизнью и вы кожей чувствуете результат. `,
-    `Вам от природы дано ощущение своего энергоресурса.`,
-    `У вас есть связь с родом, после того, как вы поставили цель и что-то.`,
-    `Все цели которые вы ставите требуют достаточного количества усилий и времени.
-    Вам необходимо наработать энергию опыта и трудолюбия.
-    `,
-    `У вас есть ощущение законченности результата, но это не всегда так.
-    Вам необходимо наработать энергию анализа.
-    `,
-    `Успех – это легкое достижение поставленных целей и общественное признание ваших результатов.
-    Обратите внимание, не умение
-    Вам необходимо наработать энергию анализа, коммуникации и внутреннюю энергию кундалини.
-    `,
-    `Коммуникации – это взаимодействие с социумом. А социум – это наше все. Через него приходят возможности во все сферы жизни (финансы, семья, друзья и т.д). С их помощью люди обмениваются информацией, опытом, способностями, товарами, услугами и финансами. 
-    Обратите внимание
-    Вам необходимо наработать энергию коммуникации.
-    `,
-    `Обратите внимание на то, что недостаточно
-    Вам необходимо наработать энергию кундалини, опыта и трудолюбия.
-    `,
-    `Эмоциональный интеллект — это способность человека распознавать эмоции, понимать намерения, мотивацию и желания других людей и свои собственные, а также способность управлять своими эмоциями и эмоциями других людей в целях решения практических задач.
-    Вам необходимо научиться правильно
-    Вам необходимо наработать энергию коммуникации.
-    `,
-  ];
+  useEffect(() => {
+    console.log("PIFA");
+  });
+  const [birthday, setBirthday] = useState("");
+  const [matrix, setMatrix] = useState<Matrix>({
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
+  });
+  const [matrixDescriptions, setMatrixDescriptions] = useState([]);
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      fetch(`${API_URL_BASE}/services/lifeMatrix`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          if (data.message === "Success!") {
+            setBirthday(data.result.birthDate);
+            setMatrix(data.result.matrix);
+            setMatrixDescriptions(Object.entries(data.result.result));
+          }
+        });
+    }
+  }, []);
 
   return (
     <AuthorizedLayout>
       <div>
-        <h1>Цифрологии 21 века</h1>
         <div>
-          <Divider orientation="left">Дата рождения</Divider>
-          02.04.1996
-        </div>
-
-        <div>
-          <Divider orientation="left">Матрица</Divider>
-          <MatrixTable />
+          <Divider orientation="left">
+            <h1>Матрица</h1>
+          </Divider>
+          <p>Дата рождения: {birthday}</p>
+          <MatrixTable matrix={matrix} />
         </div>
         <div>
-          <Divider orientation="left">Сферы</Divider>
+          <Divider orientation="left">
+            <h1>Сферы</h1>
+          </Divider>
           <List
-            dataSource={data}
-            renderItem={(item) => <List.Item>{item}</List.Item>}
+            dataSource={matrixDescriptions}
+            renderItem={(item) => (
+              <List.Item>
+                <h2>{item[0]}</h2>
+                {item[1]}
+              </List.Item>
+            )}
           ></List>
         </div>
       </div>

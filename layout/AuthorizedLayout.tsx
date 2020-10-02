@@ -27,12 +27,12 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({ children }) => {
       <Layout.Header>
         <AuthorizedMenu />
       </Layout.Header>
-      <Layout.Content style={{ padding: "2rem" }}>
-        {token && children}
-      </Layout.Content>
+      {token && (
+        <Layout.Content style={{ padding: "2rem" }}>{children}</Layout.Content>
+      )}
       {/* <Layout.Footer>
-        <h2>Footer</h2>
-      </Layout.Footer> */}
+          <h2>Footer</h2>
+        </Layout.Footer> */}
     </Layout>
   );
 };
