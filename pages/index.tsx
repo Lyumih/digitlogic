@@ -3,8 +3,6 @@ import React from "react";
 import AuthorizedLayout from "../layout/AuthorizedLayout";
 
 const HomePage = () => {
-  
-
   return (
     <div>
       <Head>
