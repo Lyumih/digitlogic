@@ -1,26 +1,19 @@
-import { Button } from "antd";
 import Head from "next/head";
-import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import React from "react";
+import AuthorizedLayout from "../layout/AuthorizedLayout";
 
 const HomePage = () => {
+  
+
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Цифрологии XXI века</title>
+        <title>Цифрология XXI века</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <h1>Цифрологии XXI века</h1>
-      <Link href="/pifagor">
-        <Button>Начать</Button>
-      </Link>
-      <Link href="/login">
-        <Button>Войти</Button>
-      </Link>
-      <Link href="/registration">
-        <Button>Регистрация</Button>
-      </Link>
+      <AuthorizedLayout>
+        <h1>Цифрология XXI века</h1>
+      </AuthorizedLayout>
     </div>
   );
 };

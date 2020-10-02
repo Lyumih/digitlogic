@@ -1,9 +1,9 @@
 import { Table } from "antd";
 import { FC } from "react";
 
-interface PifagorTableProps {}
+interface MatrixTableProps {}
 
-const PifagorTable: FC<PifagorTableProps> = () => {
+const MatrixTable: FC<MatrixTableProps> = () => {
   const columns = [
     {
       title: "",
@@ -53,4 +53,4 @@ const PifagorTable: FC<PifagorTableProps> = () => {
   );
 };
 
-export default PifagorTable;
+export default MatrixTable;

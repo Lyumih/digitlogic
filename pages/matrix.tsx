@@ -1,10 +1,9 @@
-import { Divider, List, Typography } from "antd";
-import { Container } from "next/app";
+import { Divider, List } from "antd";
 import { FC } from "react";
-import PifagorTable from "../components/PifagorTable";
-import MainLayout from "../layout/MainLayout";
+import MatrixTable from "../components/MatrixTable";
+import AuthorizedLayout from "../layout/AuthorizedLayout";
 
-const PifagorPage: FC = () => {
+const MatrixPage: FC = () => {
   const data = [
     `Обратите внимание на здоровье.
     Вам необходимо наработать энергию анализа.`,
@@ -39,8 +38,8 @@ const PifagorPage: FC = () => {
   ];
 
   return (
-    <MainLayout>
-      <div >
+    <AuthorizedLayout>
+      <div>
         <h1>Цифрологии 21 века</h1>
         <div>
           <Divider orientation="left">Дата рождения</Divider>
@@ -49,7 +48,7 @@ const PifagorPage: FC = () => {
 
         <div>
           <Divider orientation="left">Матрица</Divider>
-          <PifagorTable />
+          <MatrixTable />
         </div>
         <div>
           <Divider orientation="left">Сферы</Divider>
@@ -59,8 +58,8 @@ const PifagorPage: FC = () => {
           ></List>
         </div>
       </div>
-    </MainLayout>
+    </AuthorizedLayout>
   );
 };
 
-export default PifagorPage;
+export default MatrixPage;

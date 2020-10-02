@@ -1,24 +1,55 @@
-import { Button } from "antd";
-import React, { useState } from "react";
-import LoginForm, { LoginDataProps } from "../components/Forms/LoginForm";
-import RegistrationForm, { RegistrationDataProps } from "../components/Forms/RegistrationForm";
+import React, { useEffect } from "react";
+import RegistrationForm, {
+  RegistrationDataProps,
+} from "../components/Forms/RegistrationForm";
 import { API_URL_BASE } from "../constants";
-import MainLayout from "../layout/MainLayout";
+import NotAuthorizedLayout from "../layout/NotAuthorizedLayout";
+import { message } from "antd";
+import { error } from "console";
+import { useRouter } from "next/dist/client/router";
+import { logout } from "../helpers/auth";
 
 const RegistrationPage = () => {
-  const [step, setStep] = useState([1]);
+  const router = useRouter();
   const onFinish = (data: RegistrationDataProps) => {
     console.log(data);
-    fetch(`${API_URL_BASE}/users/registration`, {
+    fetch(`${API_URL_BASE}/users/register/`, {
       method: "POST",
-    });
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...data,
+        first_name: data.firstName,
+        last_name: data.lastName,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.message === "CREATED") {
+          message.success("Вы успешно зарегистрировались!");
+          router.push("/login");
+        } else {
+          message.error("Пользователь уже существует");
+        }
+      })
+      .catch((error) => {
+        message.error("Регистрация не удалась!");
+      });
   };
 
+  
+  useEffect(() => {
+    logout();
+  });
+
+
   return (
-    <MainLayout>
+    <NotAuthorizedLayout>
       <h1>Регистрация</h1>
       <RegistrationForm onFinish={onFinish} />
-    </MainLayout>
+    </NotAuthorizedLayout>
   );
 };
 
