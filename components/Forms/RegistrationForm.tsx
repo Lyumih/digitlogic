@@ -12,7 +12,7 @@ export interface RegistrationDataProps {
   lastName: string;
   phone: string;
   sex: "m" | "f";
-  birthdate: string;
+  birthdate: any;
 }
 
 const RegistrationForm: FC<RegistrationFormProps> = ({ onFinish }) => {
@@ -80,12 +80,12 @@ const RegistrationForm: FC<RegistrationFormProps> = ({ onFinish }) => {
       </Form.Item>
       <Form.Item
         label="День рождения"
-        name="birthday"
+        name="birthdate"
         rules={[
           { required: true, message: "Пожалуйста введите вашу дату рождения!" },
         ]}
       >
-        <DatePicker />
+        <DatePicker format="Y-M-D" />
       </Form.Item>
       <Form.Item
         label="Пол"

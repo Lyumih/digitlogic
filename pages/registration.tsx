@@ -13,6 +13,7 @@ const RegistrationPage = () => {
   const router = useRouter();
   const onFinish = (data: RegistrationDataProps) => {
     console.log(data);
+    data.birthdate = data.birthdate.format("Y-M-D");
     fetch(`${API_URL_BASE}/users/register/`, {
       method: "POST",
       headers: {
@@ -39,11 +40,9 @@ const RegistrationPage = () => {
       });
   };
 
-  
   useEffect(() => {
     logout();
   });
-
 
   return (
     <NotAuthorizedLayout>

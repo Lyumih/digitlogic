@@ -39,21 +39,21 @@ const MatrixTable: FC<MatrixTableProps> = ({ matrix }) => {
   const dataSource = [
     {
       key: "1",
-      321: "3".repeat(matrix[3]),
-      654: "6".repeat(matrix[6]),
-      987: "9".repeat(matrix[9]),
+      321: "3 " + "3".repeat(matrix[3]),
+      654: "6 " + "6".repeat(matrix[6]),
+      987: "9 " + "9".repeat(matrix[9]),
     },
     {
       key: "2",
-      321: "2".repeat(matrix[2]),
-      654: "5".repeat(matrix[5]),
-      987: "8".repeat(matrix[8]),
+      321: "2 " + "2".repeat(matrix[2]),
+      654: "5 " + "5".repeat(matrix[5]),
+      987: "8 " + "8".repeat(matrix[8]),
     },
     {
       key: "3",
-      321: "1".repeat(matrix[1]),
-      654: "4".repeat(matrix[4]),
-      987: "7".repeat(matrix[7]),
+      321: "1 " + "1".repeat(matrix[1]),
+      654: "4 " + "4".repeat(matrix[4]),
+      987: "7 " + "7".repeat(matrix[7]),
     },
   ];
 
