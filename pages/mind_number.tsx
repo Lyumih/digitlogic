@@ -67,7 +67,7 @@ const MindNumberPage: FC = () => {
         </div>
         <div>
           <Divider orientation="left">
-            <h1>Число Миссии {mindNumber}</h1>
+            <h1>Число Миссии {missionNumber}</h1>
           </Divider>
           <MissionNumberContent content={missionNumberContent} />
         </div>
