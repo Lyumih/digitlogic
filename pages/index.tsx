@@ -9,9 +9,7 @@ const HomePage = () => {
       <Head>
         <title>{setSitename("")}</title>
       </Head>
-      <AuthorizedLayout>
-        <h1>Цифрология XXI века</h1>
-      </AuthorizedLayout>
+      <AuthorizedLayout></AuthorizedLayout>
     </div>
   );
 };
