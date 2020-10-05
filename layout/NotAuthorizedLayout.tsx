@@ -19,9 +19,7 @@ const NotAuthorizedLayout: FC<AuthorizedLayoutProps> = ({ children }) => {
         <NotAuthorizedMenu />
       </Layout.Header>
 
-      <Layout.Content style={{ paddingLeft: "2rem", paddingRight: "2rem" }}>
-        {children}
-      </Layout.Content>
+      <Layout.Content style={{ padding: "2rem" }}>{children}</Layout.Content>
       {/* <Layout.Footer>
         <h2>Footer</h2>
       </Layout.Footer> */}

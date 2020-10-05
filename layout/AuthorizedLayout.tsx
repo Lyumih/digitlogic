@@ -37,7 +37,7 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({ children }) => {
       </Layout.Header>
 
       {token && (
-        <Layout.Content style={{ padding: "2rem", paddingRight: "2rem" }}>
+        <Layout.Content style={{ padding: "2rem" }}>
           {children}
         </Layout.Content>
       )}
