@@ -2,6 +2,7 @@ import { Layout, Menu } from "antd";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import { FC, useEffect, useState } from "react";
+import TriangleBackground from "../components/Background/TriangleBackground";
 import AuthorizedMenu from "../components/Menu/AuthorizedMenu";
 
 interface AuthorizedLayoutProps {}
@@ -25,14 +26,20 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({ children }) => {
   }, [token]);
   return (
     <Layout>
-      <Head>
-        <link rel="icon" href="/favicon.png" />
-      </Head>
+      <TriangleBackground />
+
       <Layout.Header>
+        <Head>
+          <link rel="icon" href="/favicon.png" />
+        </Head>
+
         <AuthorizedMenu />
       </Layout.Header>
+
       {token && (
-        <Layout.Content style={{ padding: "2rem" }}>{children}</Layout.Content>
+        <Layout.Content style={{ padding: "2rem", paddingRight: "2rem" }}>
+          {children}
+        </Layout.Content>
       )}
       {/* <Layout.Footer>
           <h2>Footer</h2>
