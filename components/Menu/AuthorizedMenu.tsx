@@ -30,14 +30,14 @@ const AuthorizedMenu: FC = () => {
     <Menu mode="horizontal" theme="dark">
       {menuItems.map((item) => {
         return (
-          <Menu.Item>
+          <Menu.Item key={item.href}>
             <Link href={item.href}>
-              <a>{item.label}</a>
+              <a>{item.label}</a> 
             </Link>
           </Menu.Item>
         );
       })}
-    </Menu>
+    </Menu> 
   );
 };
 

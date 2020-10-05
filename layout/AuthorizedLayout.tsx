@@ -1,5 +1,6 @@
 import { Layout, Menu } from "antd";
 import { useRouter } from "next/dist/client/router";
+import Head from "next/head";
 import { FC, useEffect, useState } from "react";
 import AuthorizedMenu from "../components/Menu/AuthorizedMenu";
 
@@ -24,6 +25,9 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({ children }) => {
   }, [token]);
   return (
     <Layout>
+      <Head>
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <Layout.Header>
         <AuthorizedMenu />
       </Layout.Header>

@@ -1,7 +1,8 @@
-import { Divider, List } from "antd";
+import { Divider, List, Skeleton } from "antd";
+import Head from "next/head";
 import { FC, useEffect, useState } from "react";
 import MatrixTable, { Matrix } from "../components/MatrixTable";
-import { API_URL_BASE } from "../constants";
+import { API_URL_BASE, setSitename } from "../constants";
 import AuthorizedLayout from "../layout/AuthorizedLayout";
 
 const MatrixPage: FC = () => {
@@ -46,6 +47,9 @@ const MatrixPage: FC = () => {
 
   return (
     <AuthorizedLayout>
+      <Head>
+        <title>{setSitename("Матрица")}</title>
+      </Head>
       <div>
         <div>
           <Divider orientation="left">
@@ -58,15 +62,22 @@ const MatrixPage: FC = () => {
           <Divider orientation="left">
             <h1>Сферы</h1>
           </Divider>
-          <List
-            dataSource={matrixDescriptions}
-            renderItem={(item) => (
-              <List.Item>
-                <h2>{item[0]}</h2>
-                {item[1]}
-              </List.Item>
-            )}
-          ></List>
+          {matrixDescriptions.length > 0 ? (
+            <List
+              dataSource={matrixDescriptions}
+              renderItem={(item) => (
+                <List.Item>
+                  <h2>{item[0]}</h2>
+                  {item[1]}
+                </List.Item>
+              )}
+            />
+          ) : (
+            <>
+              <Skeleton active />
+              <Skeleton active />
+            </>
+          )}
         </div>
       </div>
     </AuthorizedLayout>

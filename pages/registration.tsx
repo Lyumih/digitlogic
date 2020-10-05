@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import RegistrationForm, {
   RegistrationDataProps,
 } from "../components/Forms/RegistrationForm";
-import { API_URL_BASE } from "../constants";
+import { API_URL_BASE, setSitename } from "../constants";
 import NotAuthorizedLayout from "../layout/NotAuthorizedLayout";
 import { message } from "antd";
 import { error } from "console";
 import { useRouter } from "next/dist/client/router";
 import { logout } from "../helpers/auth";
+import Head from "next/head";
 
 const RegistrationPage = () => {
   const router = useRouter();
@@ -46,6 +47,9 @@ const RegistrationPage = () => {
 
   return (
     <NotAuthorizedLayout>
+      <Head>
+        <title>{setSitename("Регистрация")}</title>
+      </Head>
       <h1>Регистрация</h1>
       <RegistrationForm onFinish={onFinish} />
     </NotAuthorizedLayout>

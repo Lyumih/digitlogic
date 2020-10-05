@@ -1,7 +1,8 @@
 import { message } from "antd";
+import Head from "next/head";
 import React, { useEffect } from "react";
 import LoginForm, { LoginDataProps } from "../components/Forms/LoginForm";
-import { API_URL_BASE } from "../constants";
+import { API_URL_BASE, setSitename } from "../constants";
 import { logout } from "../helpers/auth";
 import NotAuthorizedLayout from "../layout/NotAuthorizedLayout";
 
@@ -35,6 +36,9 @@ const LoginPage = () => {
 
   return (
     <NotAuthorizedLayout>
+      <Head>
+        <title>{setSitename("Войти")}</title>
+      </Head>
       <h1>Войти</h1>
       <LoginForm onFinish={onFinish} />
     </NotAuthorizedLayout>
