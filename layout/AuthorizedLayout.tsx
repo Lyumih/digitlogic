@@ -25,8 +25,8 @@ const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({ children }) => {
     }
   }, [token]);
   return (
-    <Layout>
-      <TriangleBackground />
+    <Layout className="image-triangle">
+      {/* <TriangleBackground /> */}
 
       <Layout.Header>
         <Head>

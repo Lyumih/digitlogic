@@ -1,8 +1,9 @@
-.image-triangle {
+.image-triangle::before {
+  content: "";
   min-height: 420px;
   position: fixed;
   opacity: 0.2;
-  margin-top: -2rem;
+  /* margin-top: -2rem; */
   min-width: 100%;
   background: url(/images/mask/logo.svg) 50% 56% no-repeat,
     url(/images/mask/vector.svg) 50% 117% no-repeat,

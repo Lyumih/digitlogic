@@ -8,8 +8,8 @@ interface AuthorizedLayoutProps {}
 
 const NotAuthorizedLayout: FC<AuthorizedLayoutProps> = ({ children }) => {
   return (
-    <Layout>
-      <TriangleBackground />
+    <Layout className="image-triangle">
+      {/* <TriangleBackground /> */}
 
       <Head>
         <link rel="icon" href="/favicon.png" />
